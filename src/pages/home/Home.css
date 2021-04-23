@@ -1,0 +1,14 @@
+.home__carousel-wrapper {
+  margin-bottom: 10em;
+}
+
+.home__carousel-wrapper .home__carousel {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.home__carousel-wrapper .home__carousel img {
+  max-height: 700px;
+  width: 100%;
+}
+/*# sourceMappingURL=Home.css.map */

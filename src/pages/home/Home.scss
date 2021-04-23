@@ -1,0 +1,17 @@
+.home{
+
+    &__carousel-wrapper{
+        margin-bottom: 10em;
+        
+        .home__carousel{
+            width: 100% !important;
+            height: 100% !important;
+        
+            img{
+                max-height: 700px;
+                width:100%;
+            }
+        }
+    }
+
+}
