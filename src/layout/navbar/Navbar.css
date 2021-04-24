@@ -73,10 +73,12 @@
   font-size: 17px;
   font-weight: 600;
   padding: 1em;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
 .navbar__links li a:hover {
-  opacity: .8;
+  opacity: .7;
   -webkit-transition: .25s;
   transition: .25s;
 }
@@ -87,8 +89,8 @@
   display: flex;
   width: 90px;
   height: 12px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;

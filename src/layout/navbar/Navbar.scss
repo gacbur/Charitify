@@ -51,9 +51,10 @@
                 font-size: 17px;
                 font-weight: 600;
                 padding:1em;
+                transition: .25s;
 
                 &:hover{
-                    opacity: .8;
+                    opacity: .7;
                     transition: .25s;
                 }
             }
@@ -62,7 +63,7 @@
                 display: flex;
                 width:90px;
                 height: 12px;
-                box-shadow: 0 0 10px rgba(0,0,0,.3);
+                box-shadow: 0 0 10px rgba(0,0,0,.4);
                 justify-content: center;
                 align-items: center;
                 border-radius: 40px;
