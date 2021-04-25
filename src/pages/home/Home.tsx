@@ -31,6 +31,8 @@ const Home = () => {
     const [slides, setSlides] = useState<any>([])
     const [startingSlide, setStartingSlide] = useState<number>(0)
 
+    const [funding, setFunding] = useState<number>(0)
+
     useEffect(() => {
         axios.get(`https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
@@ -41,20 +43,26 @@ const Home = () => {
                             id: item.id,
                             image: item.image.imagelink[4].url,
                             title: item.title,
-                            summary: item.summary
+                            summary: item.summary,
+                            funding: item.funding,
+                            goal: item.goal
                         }
                     })
                 )
             })
+    }, [])
+
+    useEffect(() => {
         const startCarousel: any = () => {
             setTimeout(() => {
                 setStartingSlide(1)
             }, 5000)
         }
 
-        startCarousel()
-
-    }, [])
+        if (slides.length > 0) {
+            startCarousel()
+        }
+    }, [slides])
 
 
     return (
@@ -80,8 +88,15 @@ const Home = () => {
                                     <h2>
                                         {item.title}
                                     </h2>
+                                    <div className="img-overlay__goal">
+                                        <div className="progress-bar">
+                                            <div className="progress-bar-full" style={{ width: `${(item.funding / item.goal) * 100}%` }}>
+                                            </div>
+                                        </div>
+                                        <p className="procentage">{((item.funding / item.goal) * 100).toFixed(0)}%</p>
+                                    </div>
                                     <p>
-                                        {item.summary.slice(0, 350) + "..."}
+                                        {item.summary.slice(0, 230) + "..."}
                                     </p>
                                 </div>
                             </div>
@@ -100,6 +115,17 @@ const Home = () => {
                             </div>
                         )
                     })}
+                </div>
+            </section>
+            <section className="home__explore">
+                <h2>Explore</h2>
+                <div className="home__explore__btns-cnt">
+                    <button className="home__explore__btn">
+                        Projects
+                    </button>
+                    <button className="home__explore__btn">
+                        Organizations
+                    </button>
                 </div>
             </section>
         </div>

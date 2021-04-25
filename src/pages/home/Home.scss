@@ -28,21 +28,53 @@
 
             .img-overlay{
                 position: absolute;
+                border-radius: 10px;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
                 width:900px;
-                bottom:0px;
+                bottom:-50px;
                 left:50%;
                 transform: translate(-50%,-50%);
                 font-weight: 600;
                 display: flex;
                 padding:2em 2em;
-                background-color: rgba(0,0,0,.7);
+                background-color: rgba(0,0,0,.8);
                 
                 h2{
-                    margin-bottom: 1em;
+                    margin-bottom: .5em;
                     color: $green;
+                }
+
+                &__goal{
+                    width:50%;
+                    margin:1.2em 0em;
+                    display: flex;
+                    align-items: center;
+
+                    .progress-bar{
+                        overflow: hidden;
+                        width:100%;
+                        height: 30px;
+                        border-radius: 50em;
+                        background-color: white;
+                    }
+
+                    .progress-bar-full{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        max-width: 100%;
+                        height: 30px;
+                        background-color: $green;
+                        width:0%;
+                    }
+
+                    .procentage{
+                        margin-left: .5em;
+                        font-weight: 500;
+                        font-size: 20px;
+                    }
                 }
                 
                 p{
@@ -88,6 +120,44 @@
                     font-weight: bolder;
                 }
             }
+        }
+    }
+
+    &__explore{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom:10em;
+
+        &__btns-cnt{
+            display: flex;
+            justify-content: center;
+        }
+
+        &__btn{
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            width:190px;
+            background-color: $green;
+            color:white;
+            padding:1.2em 2em;
+            font-size: 20px;
+            margin:0em 2em;
+            border: none;
+            box-shadow: 0 0px 10px rgba(0,0,0,.4);
+            transition: .25s;
+
+            &:hover{
+                opacity:.8;
+                transition: .25s;
+            }
+        }
+
+        h2{
+            color: $green;
+            font-size: 53px;
+            margin: 1.2em 0em;
         }
     }
 
