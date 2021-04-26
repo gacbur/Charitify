@@ -51,13 +51,28 @@
                     margin:1.2em 0em;
                     display: flex;
                     align-items: center;
+                    
+                    .procentage{
+                        margin-left: .5em;
+                    }
 
                     .progress-bar{
+                        position: relative;
                         overflow: hidden;
                         width:100%;
                         height: 30px;
                         border-radius: 50em;
                         background-color: white;
+                        border: 2px solid white;
+
+                        &__total{
+                            position: absolute;
+                            color:$gray;
+                            left:50%;
+                            top:50%;
+                            font-weight: 900;
+                            transform: translate(-50%, -50%);
+                        }
                     }
 
                     .progress-bar-full{
@@ -68,12 +83,7 @@
                         height: 30px;
                         background-color: $green;
                         width:0%;
-                    }
 
-                    .procentage{
-                        margin-left: .5em;
-                        font-weight: 500;
-                        font-size: 20px;
                     }
                 }
                 
@@ -93,7 +103,7 @@
 
         h2{
             color: $green;
-            font-size: 53px;
+            font-size: 52px;
             margin-bottom: 1em;
         }
 
@@ -102,7 +112,8 @@
             flex-direction: column;
 
             .about-us__item{
-                max-width: 650px;
+                max-width: 800px;
+                font-size: 20px;
                 display: flex;
                 align-items: center;
                 margin: 1em 0em;
@@ -112,10 +123,11 @@
                 i{
                     color: $green;
                     margin: 0em .5em;
-                    font-size: 70px;
+                    font-size: 76px;
                 }
 
                 p{
+                    font-size: 19px;
                     text-align: justify;
                     font-weight: bolder;
                 }

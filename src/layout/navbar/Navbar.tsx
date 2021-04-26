@@ -1,6 +1,6 @@
-import React from 'react'
-
 import { Link } from 'react-router-dom'
+
+import { IoIosArrowUp } from 'react-icons/io'
 
 import './Navbar.css';
 
@@ -12,9 +12,45 @@ const Navbar = () => {
                     <Link to="/">Charitify.</Link>
                 </div>
                 <ul className="navbar__links">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about-us">About us</Link></li>
-                    <li><Link to="/explore" className="explore">Explore</Link></li>
+                    <div className="navbar__links__normal">
+                        <li><Link to="/">Home</Link></li>
+                    </div>
+                    <div className="navbar__links__dropdown">
+                        <li className="dropdown">
+                            Explore
+                            <IoIosArrowUp className="dropdown-icon" />
+                            <ul className="links">
+                                <li className="link">
+                                    <Link to="/projects">
+                                        Projects
+                                </Link>
+                                </li>
+                                <li className="link">
+                                    <Link to="/organizations">
+                                        Organizations
+                                </Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
+                    <div className="navbar__links__dropdown">
+                        <li className="dropdown">
+                            Followed
+                            <IoIosArrowUp className="dropdown-icon" />
+                            <ul className="links">
+                                <li className="link">
+                                    <Link to="/projects">
+                                        Projects
+                                </Link>
+                                </li>
+                                <li className="link">
+                                    <Link to="/organizations">
+                                        Organizations
+                                </Link>
+                                </li>
+                            </ul>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>

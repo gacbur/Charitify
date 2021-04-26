@@ -40,7 +40,7 @@
 }
 
 .navbar__logo a:hover {
-  opacity: .7;
+  color: rgba(2, 169, 92, 0.72);
   -webkit-transition: .3s;
   transition: .3s;
 }
@@ -60,48 +60,124 @@
   width: fit-content;
   margin-left: auto;
   margin-right: 14em;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
-.navbar__links li {
-  list-style-type: none;
-  margin: 0em .8em;
+.navbar__links__normal {
+  margin-right: 1.5em;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
-.navbar__links li a {
+.navbar__links__normal li {
+  list-style: none;
+}
+
+.navbar__links__normal li a {
   text-decoration: none;
+  padding: .5em .8em;
   color: #02a95c;
-  font-size: 17px;
-  font-weight: 600;
-  padding: 1em;
+  font-weight: 700;
+}
+
+.navbar__links__normal li a:hover {
+  color: rgba(2, 169, 92, 0.72);
   -webkit-transition: .25s;
   transition: .25s;
 }
 
-.navbar__links li a:hover {
-  opacity: .7;
-  -webkit-transition: .25s;
-  transition: .25s;
-}
-
-.navbar__links li .explore {
+.navbar__links__dropdown {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 90px;
-  height: 12px;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+}
+
+.navbar__links__dropdown .dropdown {
+  position: relative;
+  color: #02a95c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-radius: 40px;
-  color: white;
-  font-weight: lighter;
+  list-style: none;
+  font-weight: 700;
+  padding: .5em .8em;
+  cursor: pointer;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navbar__links__dropdown .dropdown:hover {
+  color: rgba(2, 169, 92, 0.72);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navbar__links__dropdown .dropdown .dropdown-icon {
+  margin-left: .4em;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navbar__links__dropdown .dropdown:hover .links {
+  opacity: 1;
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navbar__links__dropdown .dropdown:hover .dropdown-icon {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.navbar__links__dropdown .dropdown .links {
+  opacity: 0;
+  visibility: hidden;
   background-color: #02a95c;
+  position: absolute;
+  width: 150px;
+  top: 100%;
+  z-index: 1000;
+}
+
+.navbar__links__dropdown .dropdown .links .link {
+  color: #02a95c;
+  list-style: none;
+  font-weight: 700;
+  width: 100%;
   -webkit-transition: .25s;
   transition: .25s;
+}
+
+.navbar__links__dropdown .dropdown .links .link:hover {
+  background-color: #028045;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.navbar__links__dropdown .dropdown .links .link a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: .8em .5em;
+  text-decoration: none;
+  width: 100%;
 }
 /*# sourceMappingURL=Navbar.css.map */

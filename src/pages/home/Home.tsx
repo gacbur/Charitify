@@ -16,13 +16,13 @@ const Home = () => {
 
     const aboutUsItems = [
         {
-            id: 1, icon: <RiHandHeartLine />, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime incidunt totam voluptatibus animi officiis ad, qui repellendus voluptas inventore velit voluptate repellat veritatis porro, explicabo sint quaerat maiores? Soluta, omnis.'
+            id: 1, icon: <RiHandHeartLine />, text: 'We Charitify are an organization that helps you search for all kinds of charities, organizations and people that you would like to support with donating.'
         },
         {
-            id: 2, icon: <AiOutlineFileSearch />, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime incidunt totam voluptatibus animi officiis ad, qui repellendus voluptas inventore velit voluptate repellat veritatis porro, explicabo sint quaerat maiores? Soluta, omnis.'
+            id: 2, icon: <AiOutlineFileSearch />, text: 'We offer you a wide range of projects you can search for, you would like to support and donate! '
         },
         {
-            id: 3, icon: <CgSmile />, text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime incidunt totam voluptatibus animi officiis ad, qui repellendus voluptas inventore velit voluptate repellat veritatis porro, explicabo sint quaerat maiores? Soluta, omnis.'
+            id: 3, icon: <CgSmile />, text: 'Our mission is to make helping people easy and accessible. There is nothing more fullfiling than helping others in need, and achive their dreams. “The greatest use of a life is to spend it on something that will outlast it.” William James. '
         },
 
 
@@ -30,8 +30,6 @@ const Home = () => {
 
     const [slides, setSlides] = useState<any>([])
     const [startingSlide, setStartingSlide] = useState<number>(0)
-
-    const [funding, setFunding] = useState<number>(0)
 
     useEffect(() => {
         axios.get(`https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=${process.env.REACT_APP_API_KEY}`)
@@ -90,6 +88,9 @@ const Home = () => {
                                     </h2>
                                     <div className="img-overlay__goal">
                                         <div className="progress-bar">
+                                            <p className="progress-bar__total">
+                                                {`($${item.funding} of $${item.goal})`}
+                                            </p>
                                             <div className="progress-bar-full" style={{ width: `${(item.funding / item.goal) * 100}%` }}>
                                             </div>
                                         </div>

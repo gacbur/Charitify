@@ -72,12 +72,28 @@
           align-items: center;
 }
 
+.home__carousel-wrapper .home__carousel .img-overlay__goal .procentage {
+  margin-left: .5em;
+}
+
 .home__carousel-wrapper .home__carousel .img-overlay__goal .progress-bar {
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: 30px;
   border-radius: 50em;
   background-color: white;
+  border: 2px solid white;
+}
+
+.home__carousel-wrapper .home__carousel .img-overlay__goal .progress-bar__total {
+  position: absolute;
+  color: #32404e;
+  left: 50%;
+  top: 50%;
+  font-weight: 900;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .home__carousel-wrapper .home__carousel .img-overlay__goal .progress-bar-full {
@@ -94,12 +110,6 @@
   height: 30px;
   background-color: #02a95c;
   width: 0%;
-}
-
-.home__carousel-wrapper .home__carousel .img-overlay__goal .procentage {
-  margin-left: .5em;
-  font-weight: 500;
-  font-size: 20px;
 }
 
 .home__carousel-wrapper .home__carousel .img-overlay p {
@@ -123,7 +133,7 @@
 
 .home__about-us h2 {
   color: #02a95c;
-  font-size: 53px;
+  font-size: 52px;
   margin-bottom: 1em;
 }
 
@@ -138,7 +148,8 @@
 }
 
 .home__about-us .about-us__items-cnt .about-us__item {
-  max-width: 650px;
+  max-width: 800px;
+  font-size: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -152,10 +163,11 @@
 .home__about-us .about-us__items-cnt .about-us__item i {
   color: #02a95c;
   margin: 0em .5em;
-  font-size: 70px;
+  font-size: 76px;
 }
 
 .home__about-us .about-us__items-cnt .about-us__item p {
+  font-size: 19px;
   text-align: justify;
   font-weight: bolder;
 }
