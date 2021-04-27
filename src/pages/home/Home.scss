@@ -68,9 +68,11 @@
                         &__total{
                             position: absolute;
                             color:$gray;
+                            width:100%;
+                            text-align: center;
                             left:50%;
                             top:50%;
-                            font-weight: 900;
+                            font-weight:900;
                             transform: translate(-50%, -50%);
                         }
                     }
@@ -161,7 +163,7 @@
             transition: .25s;
 
             &:hover{
-                opacity:.8;
+                background-color: $green-hover-light;
                 transition: .25s;
             }
         }

@@ -89,6 +89,8 @@
 .home__carousel-wrapper .home__carousel .img-overlay__goal .progress-bar__total {
   position: absolute;
   color: #32404e;
+  width: 100%;
+  text-align: center;
   left: 50%;
   top: 50%;
   font-weight: 900;
@@ -217,7 +219,7 @@
 }
 
 .home__explore__btn:hover {
-  opacity: .8;
+  background-color: rgba(2, 169, 92, 0.72);
   -webkit-transition: .25s;
   transition: .25s;
 }
