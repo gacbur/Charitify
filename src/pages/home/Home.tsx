@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+
+import { useHistory } from 'react-router'
 
 import axios from 'axios'
 
@@ -24,17 +26,16 @@ const Home = () => {
         {
             id: 3, icon: <CgSmile />, text: 'Our mission is to make helping people easy and accessible. There is nothing more fullfiling than helping others in need, and achive their dreams. “The greatest use of a life is to spend it on something that will outlast it.” William James. '
         },
-
-
     ]
 
     const [slides, setSlides] = useState<any>([])
     const [startingSlide, setStartingSlide] = useState<number>(0)
 
+    const history = useHistory()
+
     useEffect(() => {
         axios.get(`https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
-                console.log(res.data.projects.project)
                 setSlides(
                     res.data.projects.project.map((item: any) => {
                         return {
@@ -63,6 +64,12 @@ const Home = () => {
     }, [slides])
 
 
+    const handleGoToProject = (index: number) => {
+        const projectItemId = slides[index].id
+        history.push(`/project/${projectItemId}`)
+    }
+
+
     return (
         <div className="home">
             <section className="home__carousel-wrapper">
@@ -76,6 +83,7 @@ const Home = () => {
                     showStatus={false}
                     showThumbs={false}
                     stopOnHover
+                    onClickItem={(index) => handleGoToProject(index)}
                 >
                     {slides.map((item: any) => {
                         return (

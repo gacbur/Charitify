@@ -2,9 +2,6 @@ export const GET_SINGLE_PROJECT = "GET_SINGLE_PROJECT"
 export const GET_SINGLE_PROJECT_LOADING = "GET_SINGLE_PROJECT_LOADING"
 export const GET_SINGLE_PROJECT_ERROR = "GET_SINGLE_PROJECT_ERROR"
 
-export type country = {
-    name: string
-}
 
 export type donationOption = {
     amount: number,
@@ -32,8 +29,8 @@ export type project = {
     id: number,
     title: string,
     activities: string,
+    summary: string,
     contactUrl: string,
-    countries: country[],
     donationOptions: donationOption[],
     numberOfDonations: number,
     funding: number,

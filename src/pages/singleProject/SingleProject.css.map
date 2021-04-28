@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,OAAO,EAAC,aAAa;CACxB",
+    "sources": [
+        "SingleProject.scss"
+    ],
+    "names": [],
+    "file": "SingleProject.css"
+}
