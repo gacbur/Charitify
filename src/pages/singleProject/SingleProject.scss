@@ -1,3 +1,21 @@
+@import '../../sass/variables.scss';
+
 .single-project{
+    margin-top: 8em;
     outline:1px solid red;
+
+    &__loading{
+        outline:1px solid red;
+        padding:2em 0em;
+        display:flex;
+        justify-content: center;
+    }
+
+    &__content{
+        outline:1px solid red;
+    }
+
+    &__error{
+        outline:1px solid red;
+    }
 }

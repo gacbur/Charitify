@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAA;EACX,OAAO,EAAC,aAAa;CACxB",
+    "mappings": "AAEA,AAAA,eAAe,CAAA;EACX,UAAU,EAAE,GAAG;EACf,OAAO,EAAC,aAAa;CAgBxB;;AAdI,AAAD,wBAAU,CAAA;EACN,OAAO,EAAC,aAAa;EACrB,OAAO,EAAC,OAAO;EACf,OAAO,EAAC,IAAI;EACZ,eAAe,EAAE,MAAM;CAC1B;;AAEA,AAAD,wBAAU,CAAA;EACN,OAAO,EAAC,aAAa;CACxB;;AAEA,AAAD,sBAAQ,CAAA;EACJ,OAAO,EAAC,aAAa;CACxB",
     "sources": [
-        "SingleProject.scss"
+        "SingleProject.scss",
+        "../../sass/variables.scss"
     ],
     "names": [],
     "file": "SingleProject.css"

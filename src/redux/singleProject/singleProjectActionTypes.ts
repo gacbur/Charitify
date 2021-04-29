@@ -28,6 +28,7 @@ export type projectOrganization = {
 export type project = {
     id: number,
     title: string,
+    image: string,
     activities: string,
     summary: string,
     contactUrl: string,

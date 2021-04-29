@@ -19,14 +19,24 @@
             }
 
             .carousel__item{
+                cursor: pointer;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 width:60%;
                 height: 750px;
+                transition: .4s;
+
+                &:hover{
+                    transition: .4s;
+                    opacity: .7;
+                }
+
+                
             }
 
             .img-overlay{
+                cursor: pointer;
                 position: absolute;
                 border-radius: 10px;
                 display: flex;
@@ -40,7 +50,7 @@
                 display: flex;
                 padding:2em 2em;
                 background-color: rgba(0,0,0,.8);
-                
+
                 h2{
                     margin-bottom: .5em;
                     color: $green;
@@ -85,7 +95,6 @@
                         height: 30px;
                         background-color: $green;
                         width:0%;
-
                     }
                 }
                 

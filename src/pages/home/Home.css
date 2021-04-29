@@ -25,14 +25,24 @@
 }
 
 .home__carousel-wrapper .home__carousel .carousel__item {
+  cursor: pointer;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 60%;
   height: 750px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.home__carousel-wrapper .home__carousel .carousel__item:hover {
+  -webkit-transition: .4s;
+  transition: .4s;
+  opacity: .7;
 }
 
 .home__carousel-wrapper .home__carousel .img-overlay {
+  cursor: pointer;
   position: absolute;
   border-radius: 10px;
   display: -webkit-box;
