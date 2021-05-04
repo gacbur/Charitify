@@ -1,21 +1,198 @@
 @import '../../sass/variables.scss';
 
 .single-project{
-    margin-top: 8em;
-    outline:1px solid red;
+    margin-top: 5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     &__loading{
-        outline:1px solid red;
         padding:2em 0em;
         display:flex;
         justify-content: center;
     }
+    
+    &__error{
 
-    &__content{
-        outline:1px solid red;
     }
 
-    &__error{
-        outline:1px solid red;
+    &__content{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__header{
+        margin-bottom: 5em;
+        display: flex;
+        width:95%;
+        max-width: 1400px;
+        
+
+        .header__image-carousel{
+            width:60%;
+
+                .carousel{
+                    width: 100% !important;
+                    height: 100% !important;
+                    display: flex;
+                    flex-direction: column;
+        
+                    .carousel__item-cnt{
+                        width:100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+        
+                    .carousel__item{
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        width:100%;
+                        height: 450px;
+                        transition: .4s;    
+                    }
+                }
+        }
+
+        .header__main-text{
+            padding-left:2.8em;
+            width:40%;
+
+            .is-active{
+                font-size: 16px;
+            }
+
+            .title{
+                font-size: 24px;
+                margin-top: 1em;
+            }
+
+            .organization-name{
+                margin-top:1.2em;
+                font-size: 15px;
+            }
+
+            .organization-country{
+                font-size: 12px;
+                margin-top: 4px;
+                opacity:.6;
+            }
+
+            .goal-bar{
+                    width:80%;
+                    margin:1.8em 0em;
+                    display: flex;
+                    flex-direction: column;
+                    
+                    .procentage{
+                        font-size: 12px;
+                        margin-top: .4em;
+                    }
+
+                    .progress-bar{
+                        position: relative;
+                        overflow: hidden;
+                        width:100%;
+                        height: 30px;
+                        border-radius: 5px;
+                        background-color: white;
+                        border: 1px solid lightgrey;
+                        box-shadow: 0 0px 10px rgba(0,0,0,.05);
+
+                        &__total{
+                            position: absolute;
+                            color:$gray;
+                            width:100%;
+                            text-align: center;
+                            left:50%;
+                            top:50%;
+                            font-weight:900;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    .progress-bar-full{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        max-width: 100%;
+                        height: 30px;
+                        background-color: $green;
+                        width:0%;
+                    }
+                
+                
+                .procentage{
+                    text-align: justify;
+                    margin-left:5px;
+                    color:black;
+                }
+            }
+
+            .action-btns{
+                display: flex;
+                margin-top:3.5em;
+
+                button{
+                    cursor: pointer;
+                    height:50px;
+                    width:125px;
+                    font-weight: bold;
+                    border-radius: 4px;
+
+                    &:last-child{
+                        margin-left:1em;
+                    }    
+                }
+
+                .donate{
+                    position:relative;
+                    background-color: $light-green;
+                    border:none;
+                    color:white;
+                    transition: .25s;
+
+                    &:hover{
+                        background-color: $green;
+                    }
+
+                    i{
+                        font-size: larger;
+                        position:absolute;
+                        top:5px;
+                        right:5px;
+                    }
+                }
+                
+                .follow{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border:1px solid $light-green;
+                    background-color: white;
+                    transition: .25s;
+
+                    &:hover{
+                        background-color: $light-green;
+                        color:white;
+                        border:lightgrey 1px solid lightgrey;
+                    }
+
+                    i{
+                        font-size:medium;
+                        margin-left: .3em;
+                    }
+                }
+            }    
+        } 
+    }
+    .header-separator{
+        margin-top:2em;
+        margin-bottom: 7em;
+        color:lightgrey;
+        width:100%;
     }
 }

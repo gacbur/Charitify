@@ -36,6 +36,7 @@
             }
 
             .img-overlay{
+                pointer-events: none;
                 cursor: pointer;
                 position: absolute;
                 border-radius: 10px;

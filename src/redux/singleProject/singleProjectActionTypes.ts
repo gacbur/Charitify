@@ -28,6 +28,7 @@ export type projectOrganization = {
 export type project = {
     id: number,
     title: string,
+    active: boolean,
     image: string,
     activities: string,
     summary: string,

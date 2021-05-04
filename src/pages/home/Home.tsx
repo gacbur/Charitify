@@ -34,6 +34,7 @@ const Home = () => {
     const history = useHistory()
 
     useEffect(() => {
+
         axios.get(`https://api.globalgiving.org/api/public/projectservice/featured/projects?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => {
                 setSlides(
@@ -48,7 +49,9 @@ const Home = () => {
                         }
                     })
                 )
+
             })
+
     }, [])
 
     useEffect(() => {

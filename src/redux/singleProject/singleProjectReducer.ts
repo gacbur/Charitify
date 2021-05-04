@@ -21,8 +21,8 @@ const singleProjectReducer = (state: InitialStateI = initialState, action: Singl
     switch (action.type) {
         case GET_SINGLE_PROJECT:
             return {
-                singleProject: action.payload,
-                ...state
+                ...state,
+                singleProject: action.payload
             }
         case GET_SINGLE_PROJECT_LOADING:
             return {
