@@ -20,6 +20,8 @@ import { donationOption, imageLink } from '../../redux/singleProject/singleProje
 import { BiLinkExternal } from 'react-icons/bi'
 import { BiHeart } from 'react-icons/bi'
 
+import ProjectContent from '../../components/ProjectContent/ProjectContent';
+
 import "./SingleProject.css"
 
 type SingleProjectParams = {
@@ -51,6 +53,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                     title: project.title,
                     active: project.active,
                     image: project.imageLink,
+                    projectLink: project.projectLink,
                     activities: project.activites,
                     summary: project.summary,
                     contactUrl: project.contactUrl,
@@ -108,7 +111,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
             {singleProjectLoading && <div className="single-project__loading">
                 <ClipLoader size={80} color="rgba(2,169,92,0.72)" />
             </div>}
-            {singleProject && <div className="single-project__content">
+            {singleProject && <div className="single-project__wrapper">
                 <div className="single-project__header">
                     <div className="header__image-carousel">
 
@@ -167,6 +170,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                     </div>
                 </div>
                 <hr className="header-separator" />
+                <ProjectContent singleProject={singleProject} />
             </div>}
             {singleProjectError && <div className="single-project__error">
                 Something went wrong sorry, go to home page.

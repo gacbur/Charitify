@@ -30,6 +30,7 @@ export type project = {
     title: string,
     active: boolean,
     image: string,
+    projectLink: string,
     activities: string,
     summary: string,
     contactUrl: string,

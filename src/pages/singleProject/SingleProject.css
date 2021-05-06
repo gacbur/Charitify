@@ -22,7 +22,7 @@
           justify-content: center;
 }
 
-.single-project__content {
+.single-project__wrapper {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -241,9 +241,10 @@
 }
 
 .single-project .header-separator {
-  margin-top: 2em;
-  margin-bottom: 7em;
+  margin-top: 1em;
+  margin-bottom: 2em;
   color: lightgrey;
   width: 100%;
+  opacity: .6;
 }
 /*# sourceMappingURL=SingleProject.css.map */
