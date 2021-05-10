@@ -40,5 +40,3 @@ const singleProjectReducer = (state: InitialStateI = initialState, action: Singl
 }
 
 export default singleProjectReducer
-
-

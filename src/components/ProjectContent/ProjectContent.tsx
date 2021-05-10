@@ -1,13 +1,22 @@
 import { useState, FC } from 'react'
 import { project } from '../../redux/singleProject/singleProjectActionTypes'
 
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+
 import './ProjectContent.css'
 
 type projectContentProps = {
-    singleProject: project
+    singleProject: project,
+    projectID: string
 }
 
-const ProjectContent: FC<projectContentProps> = ({ singleProject }) => {
+const ProjectContent: FC<projectContentProps> = ({ singleProject, projectID }) => {
+
+    const CenterView = ({ center }: any) => {
+        const map = useMap()
+        map.setView(center)
+        return null
+    }
 
     const [contentOptions, setContentOptions] = useState({
         about: true,
@@ -16,12 +25,12 @@ const ProjectContent: FC<projectContentProps> = ({ singleProject }) => {
         location: false
     })
 
-    const resetOptions = {
+    const [resetOptions, setResetOptions] = useState({
         about: false,
         organization: false,
         donations: false,
         location: false
-    }
+    })
 
     const handleChangeOption = (e: any) => {
         const name = e.target.name
@@ -38,6 +47,7 @@ const ProjectContent: FC<projectContentProps> = ({ singleProject }) => {
             [name]: true
         })
     }
+
 
     return (
         <div className="project-content">
@@ -84,18 +94,39 @@ const ProjectContent: FC<projectContentProps> = ({ singleProject }) => {
                     <div className="organization">
                         {
                             <>
-                                <h4 className="organization__name">{singleProject.projectOrganization.name}</h4>
+                                <a href={`/organization/${singleProject.projectOrganization.id}`} className="organization__name">{singleProject.projectOrganization.name}</a>
                                 <p className="organization__country">{singleProject.projectOrganization.country}</p>
                                 <img className="organization__logo" src={singleProject.projectOrganization.logoUrl} alt="organization-logo" />
+                                <button className="organization__btn-link">
+                                    <a href={`/organization/${singleProject.projectOrganization.id}`}>
+                                        GO TO ORGANIZATION
+                                </a>
+                                </button>
                                 <p className="organization__mission">{singleProject.projectOrganization.mission}</p>
                             </>
                         }
                     </div>
                 }
                 {contentOptions.location &&
-                    <div className="location">
-                        location
-                    </div>
+                    <>
+                        {singleProject.latitude && singleProject.longitude ? <div className="location">
+                            <MapContainer className="location__map" center={[singleProject.latitude, singleProject.longitude]} zoom={13} scrollWheelZoom={false}>
+                                <CenterView center={[singleProject.latitude, singleProject.longitude]} />
+                                <TileLayer
+                                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
+                                <Marker position={[singleProject.latitude, singleProject.longitude]}>
+                                    <Popup>
+                                    </Popup>
+                                </Marker>
+                            </MapContainer>
+                        </div>
+                            :
+                            <div className="location-error">
+                                There is no location available for this project, Sorry!
+                    </div>}
+                    </>
                 }
             </div>
         </div>

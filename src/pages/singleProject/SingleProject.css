@@ -101,6 +101,13 @@
 }
 
 .single-project__header .header__main-text .organization-name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: bolder;
   margin-top: 1.2em;
   font-size: 15px;
 }
@@ -244,7 +251,7 @@
   margin-top: 1em;
   margin-bottom: 2em;
   color: lightgrey;
-  width: 100%;
+  width: 99%;
   opacity: .6;
 }
 /*# sourceMappingURL=SingleProject.css.map */

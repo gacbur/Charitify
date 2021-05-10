@@ -13,13 +13,13 @@ import { Carousel } from 'react-responsive-carousel';
 import ClipLoader from 'react-spinners/ClipLoader'
 
 import { RootStore } from '../../redux/Store'
-
 import { getSingleProject, getSingleProjectError, getSingleProjectLoading } from '../../redux/singleProject/singleProjectActions'
 import { donationOption, imageLink } from '../../redux/singleProject/singleProjectActionTypes'
 
 import { BiLinkExternal } from 'react-icons/bi'
 import { BiHeart } from 'react-icons/bi'
 
+import Loading from '../../components/loading/Loading'
 import ProjectContent from '../../components/ProjectContent/ProjectContent';
 
 import "./SingleProject.css"
@@ -32,7 +32,6 @@ type SingleProjectProps = RouteComponentProps<SingleProjectParams>
 
 const SingleProject: FC<SingleProjectProps> = ({ match }) => {
 
-
     const dispatch = useDispatch()
 
     const singleProjectLoading = useSelector((state: RootStore) => state.singleProject.loading)
@@ -44,6 +43,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
 
     useEffect(() => {
 
+        dispatch(getSingleProjectLoading(true))
         axios.get(`https://api.globalgiving.org/api/public/projectservice/projects/${match.params.id}?api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.data.project)
             .then(project => {
@@ -93,7 +93,6 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                 dispatch(getSingleProjectLoading(false))
                 dispatch(getSingleProjectError(true))
             })
-
     }, [match.params.id])
 
 
@@ -109,7 +108,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
     return (
         <div className="single-project">
             {singleProjectLoading && <div className="single-project__loading">
-                <ClipLoader size={80} color="rgba(2,169,92,0.72)" />
+                <Loading />
             </div>}
             {singleProject && <div className="single-project__wrapper">
                 <div className="single-project__header">
@@ -141,9 +140,9 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                         <h2 className="title">
                             {singleProject.title}
                         </h2>
-                        <h3 className="organization-name">
+                        <a href={`/organization/${singleProject.projectOrganization.id}`} className="organization-name">
                             {singleProject.projectOrganization.name}
-                        </h3>
+                        </a>
                         <h3 className="organization-country">
                             {singleProject.projectOrganization.country}
                         </h3>
@@ -160,9 +159,11 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                             </div>
                         </div>
                         <div className="action-btns">
-                            <button className="donate">
-                                DONATE <i><BiLinkExternal /></i>
-                            </button>
+                            <a href={singleProject.projectLink}>
+                                <button className="donate">
+                                    DONATE <i><BiLinkExternal /></i>
+                                </button>
+                            </a>
                             <button className="follow">
                                 FOLLOW <i><BiHeart /></i>
                             </button>
@@ -170,7 +171,7 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                     </div>
                 </div>
                 <hr className="header-separator" />
-                <ProjectContent singleProject={singleProject} />
+                <ProjectContent singleProject={singleProject} projectID={match.params.id} />
             </div>}
             {singleProjectError && <div className="single-project__error">
                 Something went wrong sorry, go to home page.

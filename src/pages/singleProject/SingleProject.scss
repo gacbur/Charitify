@@ -71,6 +71,9 @@
             }
 
             .organization-name{
+                display: flex;
+                width:fit-content;
+                font-weight: bolder;
                 margin-top:1.2em;
                 font-size: 15px;
             }
@@ -193,7 +196,7 @@
         margin-top:1em;
         margin-bottom: 2em;
         color:lightgrey;
-        width:100%;
+        width:99%;
         opacity:.6;
     }
 }
