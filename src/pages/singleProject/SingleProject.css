@@ -119,7 +119,7 @@
 }
 
 .single-project__header .header__main-text .goal-bar {
-  width: 80%;
+  width: 100%;
   margin: 1.8em 0em;
   display: -webkit-box;
   display: -ms-flexbox;

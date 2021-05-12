@@ -10,6 +10,9 @@ import { RootStore } from '../../redux/Store'
 import { getSingleOrganization, singleOrganizationLoading, singleOrganizationError } from '../../redux/singleOrganization/singleOrganizatonActions';
 
 import Loading from '../../components/loading/Loading'
+import OrgProjectItem from '../../components/orgProjectItem/OrgProjectItem'
+
+import useFetchOrgProjects from '../../hooks/useFetchOrgProjects';
 
 import './SingleOrganization.css'
 
@@ -29,6 +32,10 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
     const organizationLoading = useSelector((state: RootStore) => state.singleOrganization.loading)
     const organizationError = useSelector((state: RootStore) => state.singleOrganization.error)
     const Organization = useSelector((state: RootStore) => state.singleOrganization.organization)
+
+    const [organizationProjects, setOrganizationProjects] = useState<any>([])
+    const [nextId, setNextId] = useState('')
+    const [loadMore, setLoadMore] = useState(0)
 
     useEffect(() => {
         dispatch(singleOrganizationLoading(true))
@@ -57,13 +64,22 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
             })
     }, [match.params.id])
 
+    const { projectsLoading, projectsError } = useFetchOrgProjects(
+        match.params.id,
+        organizationProjects,
+        setOrganizationProjects,
+        setNextId,
+        nextId,
+        loadMore,
+    )
+
     useEffect(() => {
-        axios.get(`https://api.globalgiving.org/api/public/projectservice/organizations/${match.params.id}/projects/active?api_key=${process.env.REACT_APP_API_KEY}&nextProjectId=26371`)
-            .then(res => res.data)
-            .then(organization => {
-                console.log(organization)
-            })
-    }, [])
+        console.log(organizationProjects)
+    }, [organizationProjects])
+
+    const handleLoadMoreProjects = () => {
+        setLoadMore(prevState => prevState + 1)
+    }
 
     return (
         <div className="single-organization">
@@ -104,12 +120,20 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
             }
             <hr className="single-organization__main-separator"></hr>
             <div className="single-organization__projects">
-                <h3>Organization Projects</h3>
+                <h3 className="projects-section-title">Organization Projects</h3>
                 <div className="projects-wrapper">
-
+                    {organizationProjects.map((project: any) => {
+                        return <OrgProjectItem key={project.id} project={project} />
+                    })}
                 </div>
                 <div className="projects-loading">
-
+                    {projectsLoading && <Loading />}
+                </div>
+                <div className="load-more">
+                    <button
+                        className="load-more__btn"
+                        onClick={() => handleLoadMoreProjects()}
+                    >load more</button>
                 </div>
             </div>
         </div>

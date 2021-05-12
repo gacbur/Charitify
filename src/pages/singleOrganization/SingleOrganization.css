@@ -10,7 +10,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 4em;
-  margin-bottom: 10em;
+  margin-bottom: 7em;
 }
 
 .single-organization__header {
@@ -116,12 +116,12 @@
 }
 
 .single-organization__projects {
-  outline: 1px solid red;
   width: 95%;
-  max-width: 1400px;
+  max-width: 1200px;
 }
 
-.single-organization__projects h3 {
+.single-organization__projects .projects-section-title {
+  font-size: 21px;
   margin-bottom: 2em;
 }
 
@@ -131,6 +131,65 @@
 
 .single-organization__projects .projects-wrapper {
   width: 100%;
-  outline: 1px solid blue;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (max-width: 1000px) {
+  .single-organization__projects .projects-wrapper {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media all and (max-width: 640px) {
+  .single-organization__projects .projects-wrapper {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.single-organization__projects .load-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5em 0em 0em 0em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.single-organization__projects .load-more__btn {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+  background-color: #00d173;
+  border: none;
+  border-radius: 5px;
+  width: 140px;
+  height: 50px;
+  font-size: 18px;
+  -webkit-transition: .25s;
+  transition: .25s;
+}
+
+.single-organization__projects .load-more__btn:hover {
+  background-color: rgba(2, 169, 92, 0.72);
+}
+
+.single-organization__projects .projects-loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=SingleOrganization.css.map */
