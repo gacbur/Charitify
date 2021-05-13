@@ -3,6 +3,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -20,6 +21,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .single-project__wrapper {
@@ -196,10 +200,6 @@
   border-radius: 4px;
 }
 
-.single-project__header .header__main-text .action-btns button:last-child {
-  margin-left: 1em;
-}
-
 .single-project__header .header__main-text .action-btns .donate {
   position: relative;
   background-color: #00d173;
@@ -220,7 +220,16 @@
   right: 5px;
 }
 
-.single-project__header .header__main-text .action-btns .follow {
+.single-project .header-separator {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  color: lightgrey;
+  width: 99%;
+  opacity: .6;
+}
+
+.single-project__follow-btn {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -230,28 +239,39 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid #00d173;
-  background-color: white;
-  -webkit-transition: .25s;
-  transition: .25s;
-}
-
-.single-project__header .header__main-text .action-btns .follow:hover {
+  position: fixed;
+  right: 40px;
+  top: 120px;
+  width: 55px;
+  height: 55px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #00d173;
   color: white;
-  border: lightgrey 1px solid lightgrey;
+  border-radius: 10em;
+  border: none;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
 }
 
-.single-project__header .header__main-text .action-btns .follow i {
-  font-size: medium;
-  margin-left: .3em;
+.single-project__follow-btn:hover {
+  background-color: #02a95c;
 }
 
-.single-project .header-separator {
-  margin-top: 1em;
-  margin-bottom: 2em;
-  color: lightgrey;
-  width: 99%;
-  opacity: .6;
+.single-project__follow-btn .icon-eye {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.single-project__follow-btn .icon-plus {
+  position: absolute;
+  font-size: 23px;
+  top: 4px;
+  right: 3px;
 }
 /*# sourceMappingURL=SingleProject.css.map */

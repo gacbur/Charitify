@@ -3,6 +3,7 @@
 .single-project{
     margin-top: 5em;
     display: flex;
+    position: relative;    
     flex-direction: column;
     justify-content: center;
 
@@ -10,10 +11,12 @@
         padding:2em 0em;
         display:flex;
         justify-content: center;
+        align-items: center;
+
     }
     
     &__error{
-
+        
     }
 
     &__wrapper{
@@ -145,10 +148,6 @@
                     width:125px;
                     font-weight: bold;
                     border-radius: 4px;
-
-                    &:last-child{
-                        margin-left:1em;
-                    }    
                 }
 
                 .donate{
@@ -170,25 +169,6 @@
                     }
                 }
                 
-                .follow{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    border:1px solid $light-green;
-                    background-color: white;
-                    transition: .25s;
-
-                    &:hover{
-                        background-color: $light-green;
-                        color:white;
-                        border:lightgrey 1px solid lightgrey;
-                    }
-
-                    i{
-                        font-size:medium;
-                        margin-left: .3em;
-                    }
-                }
             }    
         } 
     }
@@ -199,4 +179,39 @@
         width:99%;
         opacity:.6;
     }
+
+    &__follow-btn{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right:40px;
+        top:120px;
+        width:55px;
+        height:55px;
+        box-shadow: 0 0 6px rgba(0,0,0,.3);
+        background-color: $light-green;
+        color:white;
+        border-radius: 10em;
+        border:none;
+        transition: .25s ease;
+        
+        &:hover{
+            background-color: $green;
+        }
+        
+        .icon-eye{
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        .icon-plus{
+            position: absolute;
+            font-size: 23px;
+            top: 4px;
+            right:3px;
+        }
+    }   
 }

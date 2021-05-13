@@ -22,6 +22,9 @@ import { BiHeart } from 'react-icons/bi'
 import Loading from '../../components/loading/Loading'
 import ProjectContent from '../../components/ProjectContent/ProjectContent';
 
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
+import { BsPlus } from 'react-icons/bs'
+
 import "./SingleProject.css"
 
 type SingleProjectParams = {
@@ -164,9 +167,6 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
                                     DONATE <i><BiLinkExternal /></i>
                                 </button>
                             </a>
-                            <button className="follow">
-                                FOLLOW <i><BiHeart /></i>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -176,6 +176,12 @@ const SingleProject: FC<SingleProjectProps> = ({ match }) => {
             {singleProjectError && <div className="single-project__error">
                 Something went wrong sorry, go to home page.
             </div>}
+            <button
+                className="single-project__follow-btn"
+            >
+                <i className="icon-eye"><IoMdEye /></i>
+                <i className="icon-plus"><BsPlus /></i>
+            </button>
         </div>
     )
 }

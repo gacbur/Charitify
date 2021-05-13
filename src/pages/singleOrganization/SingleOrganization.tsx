@@ -14,6 +14,9 @@ import OrgProjectItem from '../../components/orgProjectItem/OrgProjectItem'
 
 import useFetchOrgProjects from '../../hooks/useFetchOrgProjects';
 
+import { IoMdEye, IoMdEyeOff } from 'react-icons/io'
+import { BsPlus } from 'react-icons/bs'
+
 import './SingleOrganization.css'
 
 type SingleOrganizationParams = {
@@ -73,9 +76,7 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
         loadMore,
     )
 
-    useEffect(() => {
-        console.log(organizationProjects)
-    }, [organizationProjects])
+    console.log(Organization)
 
     const handleLoadMoreProjects = () => {
         setLoadMore(prevState => prevState + 1)
@@ -91,21 +92,32 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
             </div>}
             { Organization && <div className="single-organization__header">
                 <div className="header">
+                    <h3 className="name">{Organization.name}</h3>
                     <div className="header__main-content">
                         <div className="header__image">
                             <img src={Organization.logoUrl} alt={`${Organization.name} logo`} />
                         </div>
-                        <div className="header__text">
-                            <h3 className="name">{Organization.name}</h3>
-                            {Organization.state !== '' && <h4 className="state">{Organization.state}</h4>}
-                            <h4 className="country">{Organization.city}</h4>
-                            <p className="address1">{Organization.addressLine1}</p>
-                            <p className="address2">{Organization.addressLine2}</p>
+                    </div>
+                    <div className="header__statistics">
+                        <div className="statistics-item">
+                            <h3 className="statistics-item__number">{Organization.activeProjects}</h3>
+                            <p className="statistics-item__text">active projects</p>
                         </div>
+                        <div className="statistics-item">
+                            <h3 className="statistics-item__number">{Organization.totalProjects}</h3>
+                            <p className="statistics-item__text">project founded</p>
+                        </div>
+                    </div>
+                    <div className="header__actions">
+                        <a href={Organization.url}>
+                            <button className="visit">
+                                VISIT
+                            </button>
+                        </a>
                     </div>
                     <div className="header__mission">
                         <hr className="separator" />
-                        <h2 className="mission-title">Our mission</h2>
+                        <h2 className="mission-title">Mission</h2>
                         <p className="mission-text">{showMoreMission ? Organization.mission : Organization.mission.slice(0, 1500) + "..."}
                             {!showMoreMission && Organization.mission.length > 1500 && <span
                                 className="show-more"
@@ -120,7 +132,7 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
             }
             <hr className="single-organization__main-separator"></hr>
             <div className="single-organization__projects">
-                <h3 className="projects-section-title">Organization Projects</h3>
+                <h3 className="projects-section-title">Active Projects</h3>
                 <div className="projects-wrapper">
                     {organizationProjects.map((project: any) => {
                         return <OrgProjectItem key={project.id} project={project} />
@@ -129,14 +141,20 @@ const SingleOrganization: FC<SingleOrganizationProps> = ({ match }) => {
                 <div className="projects-loading">
                     {projectsLoading && <Loading />}
                 </div>
-                <div className="load-more">
+                {organizationProjects.length > 10 && <div className="load-more">
                     <button
                         className="load-more__btn"
                         onClick={() => handleLoadMoreProjects()}
                     >load more</button>
-                </div>
+                </div>}
             </div>
-        </div>
+            <button
+                className="single-organization__follow-btn"
+            >
+                <i className="icon-eye"><IoMdEye /></i>
+                <i className="icon-plus"><BsPlus /></i>
+            </button>
+        </div >
     )
 }
 

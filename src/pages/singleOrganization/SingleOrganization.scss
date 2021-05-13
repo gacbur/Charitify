@@ -30,46 +30,75 @@
                 max-height: 300px;
             }
 
+            .name{
+                width:100%;
+                text-align:center;
+                font-size: 27px;
+                margin-bottom: .5em;
+            }
+
             &__image{
                 display: flex;
-                justify-content: flex-end;
-                width:50%;
-
+                justify-content: center;
+                width:100%;
+                
                 img{
-                    margin-right: 2em;
-                    height:100%;
+                    height: 250px;
+                }
+            }
+            
+
+            &__statistics{
+                padding: 3em 0em;
+                display: flex;
+                max-width: 500px;
+                margin:0 auto;
+
+                .statistics-item{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin:0em 2em;
+
+                    &__number{
+                        color:$green;
+                        font-weight: bolder;
+                        font-size: 27px;
+                    }
+
+                    &__text{
+                        margin-top: .4em;
+                    }
+
                 }
             }
 
-            &__text{
+            &__actions{
                 display: flex;
                 justify-content: center;
-                flex-direction: column;
-                width:50%;
+                margin-bottom: 3em;
 
-                .name{
-                    font-size: 22px;
-                    margin-bottom: .5em;
+                a{
+                    
+                    .visit{
+                    cursor: pointer;
+                    height:50px;
+                    width:125px;
+                    font-weight: bold;
+                    border-radius: 4px;
+                    position:relative;
+                    background-color: $light-green;
+                    border:none;
+                    color:white;
+                    transition: .25s;
+
+                    &:hover{
+                        background-color: $green;
+                    }
+
+                    }
                 }
 
-                .state{
-                    margin:.2em 0em;
-                }
-
-                .country{
-                    margin:.2em 0em;
-
-                }
-
-                .address1{
-                    margin:.2em 0em;
-
-                }
-
-                .address2{
-                    margin:.2em 0em;
-
-                }
             }
 
             &__mission{
@@ -112,7 +141,8 @@
         max-width:1200px;
         
         .projects-section-title{
-            font-size: 21px;
+            color:$green;
+            font-size: 25px;
             margin-bottom:2em;
         }
         
@@ -162,6 +192,41 @@
         .projects-loading{
             display: flex;
             justify-content: center;
+        }
+    } 
+    
+    &__follow-btn{
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right:40px;
+        top:120px;
+        width:55px;
+        height:55px;
+        box-shadow: 0 0 6px rgba(0,0,0,.3);
+        background-color: $light-green;
+        color:white;
+        border-radius: 10em;
+        border:none;
+        transition: .25s ease;
+        
+        &:hover{
+            background-color: $green;
+        }
+        
+        .icon-eye{
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+        }
+
+        .icon-plus{
+            position: absolute;
+            font-size: 23px;
+            top: 4px;
+            right:3px;
         }
     }   
 }

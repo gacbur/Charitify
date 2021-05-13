@@ -37,54 +37,86 @@
   max-height: 300px;
 }
 
+.single-organization__header .header .name {
+  width: 100%;
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: .5em;
+}
+
 .single-organization__header .header__image {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  width: 50%;
-}
-
-.single-organization__header .header__image img {
-  margin-right: 2em;
-  height: 100%;
-}
-
-.single-organization__header .header__text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
+}
+
+.single-organization__header .header__image img {
+  height: 250px;
+}
+
+.single-organization__header .header__statistics {
+  padding: 3em 0em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.single-organization__header .header__statistics .statistics-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0em 2em;
 }
 
-.single-organization__header .header__text .name {
-  font-size: 22px;
-  margin-bottom: .5em;
+.single-organization__header .header__statistics .statistics-item__number {
+  color: #02a95c;
+  font-weight: bolder;
+  font-size: 27px;
 }
 
-.single-organization__header .header__text .state {
-  margin: .2em 0em;
+.single-organization__header .header__statistics .statistics-item__text {
+  margin-top: .4em;
 }
 
-.single-organization__header .header__text .country {
-  margin: .2em 0em;
+.single-organization__header .header__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3em;
 }
 
-.single-organization__header .header__text .address1 {
-  margin: .2em 0em;
+.single-organization__header .header__actions a .visit {
+  cursor: pointer;
+  height: 50px;
+  width: 125px;
+  font-weight: bold;
+  border-radius: 4px;
+  position: relative;
+  background-color: #00d173;
+  border: none;
+  color: white;
+  -webkit-transition: .25s;
+  transition: .25s;
 }
 
-.single-organization__header .header__text .address2 {
-  margin: .2em 0em;
+.single-organization__header .header__actions a .visit:hover {
+  background-color: #02a95c;
 }
 
 .single-organization__header .header__mission .separator {
@@ -121,7 +153,8 @@
 }
 
 .single-organization__projects .projects-section-title {
-  font-size: 21px;
+  color: #02a95c;
+  font-size: 25px;
   margin-bottom: 2em;
 }
 
@@ -191,5 +224,52 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.single-organization__follow-btn {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  right: 40px;
+  top: 120px;
+  width: 55px;
+  height: 55px;
+  -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #00d173;
+  color: white;
+  border-radius: 10em;
+  border: none;
+  -webkit-transition: .25s ease;
+  transition: .25s ease;
+}
+
+.single-organization__follow-btn:hover {
+  background-color: #02a95c;
+}
+
+.single-organization__follow-btn .icon-eye {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 25px;
+}
+
+.single-organization__follow-btn .icon-plus {
+  position: absolute;
+  font-size: 23px;
+  top: 4px;
+  right: 3px;
 }
 /*# sourceMappingURL=SingleOrganization.css.map */
